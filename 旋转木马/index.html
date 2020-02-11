@@ -3,10 +3,11 @@
 
 <head>
     <meta>
-    <title>test</title>
+    <title>CSS3#旋转木马动画效果</title>
     <link rel="stylesheet" href="../base/css/reset.css">
     <style type="text/css">
         body {
+            /* 视距 */
             perspective: 1600px;
         }
         
@@ -17,6 +18,7 @@
             margin: 200px auto;
             background: url("../base/images/meinv2.jpg");
             background-size: 300px 400px;
+            /* 3D透视效果 */
             transform-style: preserve-3d;
             /* transition: all 0.4s; */
             animation: my_rotate 10s linear infinite;
@@ -45,26 +47,32 @@
         }
         
         section div:nth-child(1) {
+            /* 先旋转在移动 */
             transform: rotateY(0deg) translateZ(500px);
         }
         
         section div:nth-child(2) {
+            /* 先旋转在移动 */
             transform: rotateY(60deg) translateZ(500px);
         }
         
         section div:nth-child(3) {
+            /* 先旋转在移动 */
             transform: rotateY(120deg) translateZ(500px);
         }
         
         section div:nth-child(4) {
+            /* 先旋转在移动 */
             transform: rotateY(180deg) translateZ(500px);
         }
         
         section div:nth-child(5) {
+            /* 先旋转在移动 */
             transform: rotateY(240deg) translateZ(500px);
         }
         
         section div:nth-child(6) {
+            /* 先旋转在移动 */
             transform: rotateY(300deg) translateZ(500px);
         }
     </style>
