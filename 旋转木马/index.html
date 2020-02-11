@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta>
+    <title>test</title>
+    <link rel="stylesheet" href="../base/css/reset.css">
+    <style type="text/css">
+        body {
+            perspective: 1600px;
+        }
+        
+        section {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            margin: 200px auto;
+            background: url("../base/images/meinv2.jpg");
+            background-size: 300px 400px;
+            transform-style: preserve-3d;
+            /* transition: all 0.4s; */
+            animation: my_rotate 10s linear infinite;
+        }
+        
+        @keyframes my_rotate {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+        
+        section:hover {
+            animation-play-state: paused;
+        }
+        
+        section div {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            border: 0.1em solid pink;
+            background: url("../base/images/meinv3.jpg") no-repeat;
+            background-size: 300px 400px;
+        }
+        
+        section div:nth-child(1) {
+            transform: rotateY(0deg) translateZ(500px);
+        }
+        
+        section div:nth-child(2) {
+            transform: rotateY(60deg) translateZ(500px);
+        }
+        
+        section div:nth-child(3) {
+            transform: rotateY(120deg) translateZ(500px);
+        }
+        
+        section div:nth-child(4) {
+            transform: rotateY(180deg) translateZ(500px);
+        }
+        
+        section div:nth-child(5) {
+            transform: rotateY(240deg) translateZ(500px);
+        }
+        
+        section div:nth-child(6) {
+            transform: rotateY(300deg) translateZ(500px);
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+</body>
+
+</html>
