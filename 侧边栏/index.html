@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS3#侧边栏</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="../base/css/reset.css" />
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background: pink;
+            height: 1780px;
+        }
+        
+        .contact-info {
+            position: fixed;
+            top: 40%;
+            z-index: 1;
+            left: 0;
+        }
+        
+        .option {
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .option i {
+            display: block;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            background: #f1f1f1;
+            color: #b9b9b9;
+            font-size: 20px;
+            transition: 0.6s;
+        }
+        
+        .option:hover i {
+            color: #3498db;
+        }
+        
+        .text {
+            position: absolute;
+            width: 200px;
+            height: 60px;
+            background: #1b1b1b;
+            top: 0px;
+            z-index: -1;
+            left: -140px;
+            color: #ffffff;
+            line-height: 60px;
+            text-align: center;
+            transition: 0.6s;
+        }
+        
+        .option:hover .text {
+            left: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contact-info">
+        <div class="option">
+            <i class="fa fa-map-marker"></i>
+            <div class="text">Meknes Morocco</div>
+        </div>
+
+        <div class="option">
+            <i class="fa fa-envelope-o"></i>
+            <div class="text">Example@domain.com</div>
+        </div>
+
+        <div class="option">
+            <i class="fa fa-mobile"></i>
+            <div class="text">+8600000000</div>
+        </div>
+    </div>
+</body>
+
+</html>
