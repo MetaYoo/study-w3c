@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=divce-width,initial-scale=1">
+    <title>CSS3#响应式价格网页</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            background: url(../base/images/4.jpg) no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        .pricing-table {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+        
+        .col {
+            flex: 25%;
+            padding: 10px;
+            max-width: 320px;
+            box-sizing: border-box;
+        }
+        
+        .table {
+            background: #ffffff;
+            padding: 40px 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 10px #00000070;
+        }
+        
+        .table h2 {
+            text-transform: uppercase;
+        }
+        
+        .table ul {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .table ul li {
+            padding: 10px 0;
+            list-style: none;
+        }
+        
+        .price {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .price span {
+            display: block;
+            font-size: 14px;
+        }
+        
+        .table a {
+            text-decoration: none;
+            color: #2c3e50;
+            border: 2px solid #2c3e50;
+            display: block;
+            padding: 10px 0px;
+            margin: 10px 0px;
+            border-radius: 40px;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: 0.5s linear;
+        }
+        
+        .table a:hover {
+            background: #2c3e50;
+            color: #ffffff;
+        }
+        
+        .pop {
+            background: #2c3e50;
+            color: #ffffff;
+            transform: rotate(45deg);
+            padding: 10px 40px;
+            position: absolute;
+            top: 12px;
+            right: -39px;
+        }
+        
+        @media screen and (max-width: 980px) {
+            .col {
+                flex: 50%;
+            }
+        }
+        
+        @media screen and (max-width: 700px) {
+            .col {
+                flex: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pricing-table">
+        <div class="col">
+            <div class="table">
+                <h2>Regular</h2>
+                <div class="price">
+                    $10
+                    <span>Per Month</span>
+                </div>
+                <ul>
+                    <li><strong>2</strong> Websites</li>
+                    <li><strong>10</strong> Emails</li>
+                    <li><strong>100 GB</strong> Storage</li>
+                    <li><strong>1</strong> Account</li>
+                </ul>
+                <a href="#">Buy Now</a>
+            </div>
+        </div>
+        <div class="col">
+            <div class="table">
+                <h2>Pro Pack</h2>
+                <div class="pop">Popular</div>
+                <div class="price">
+                    $25
+                    <span>Per Month</span>
+                </div>
+                <ul>
+                    <li><strong>3</strong> Websites</li>
+                    <li><strong>15</strong> Emails</li>
+                    <li><strong>200 GB</strong> Storage</li>
+                    <li><strong>1</strong> Account</li>
+                </ul>
+                <a href="#">Buy Now</a>
+            </div>
+        </div>
+        <div class="col">
+            <div class="table">
+                <h2>Premium</h2>
+                <div class="price">
+                    $20
+                    <span>Per Month</span>
+                </div>
+                <ul>
+                    <li><strong>4</strong> Websites</li>
+                    <li><strong>20</strong> Emails</li>
+                    <li><strong>300 GB</strong> Storage</li>
+                    <li><strong>2</strong> Account</li>
+                </ul>
+                <a href="#">Buy Now</a>
+            </div>
+        </div>
+        <div class="col">
+            <div class="table">
+                <h2>Ultimate</h2>
+                <div class="price">
+                    $25
+                    <span>Per Month</span>
+                </div>
+                <ul>
+                    <li><strong>6</strong> Websites</li>
+                    <li><strong>20</strong> Emails</li>
+                    <li><strong>500 GB</strong> Storage</li>
+                    <li><strong>1</strong> Account</li>
+                </ul>
+                <a href="#">Buy Now</a>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

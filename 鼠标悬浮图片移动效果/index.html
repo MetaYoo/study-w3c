@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS3#鼠标悬浮图片向上移动效果</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            background: #333333;
+        }
+        
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+        
+        .img {
+            width: 240px;
+            height: 400px;
+            background: black;
+            display: inline-block;
+            margin: 10px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: 2s;
+        }
+        
+        .img:hover {
+            background-position: center center;
+        }
+        
+        .img1 {
+            background-image: url(../base/images/meinv1.jpg);
+        }
+        
+        .img2 {
+            background-image: url(../base/images/meinv2.jpg);
+        }
+        
+        .img3 {
+            background-image: url(../base/images/meinv3.jpg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="img img1"></div>
+        <div class="img img2"></div>
+        <div class="img img3"></div>
+    </div>
+</body>
+
+</html>
