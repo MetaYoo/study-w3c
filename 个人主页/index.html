@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS3#个人主页</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            background: #ffffff;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        
+        .container {
+            margin: 0px auto;
+            margin-bottom: 20px;
+            background: #ffffff;
+            max-width: 960px;
+            width: 100%;
+            height: 100%;
+            box-shadow: 5px 3px 3px rgba(20, 3, 11, 0.5);
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        header {
+            width: 100%;
+            height: 50px;
+            background: #2f3542;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            /* border: 1px solid palevioletred; */
+        }
+        
+        header logo {
+            width: 20px;
+        }
+        
+        header nav {
+            width: 80%;
+        }
+        
+        header nav {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        
+        header nav a {
+            width: 80px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 500;
+            color: #ffffff;
+            padding: 10px;
+            text-transform: uppercase;
+            margin-right: 1px;
+            background: #222222;
+        }
+        
+        header nav a:hover {
+            color: #ffffff;
+            background: rgba(238, 82, 83, 1);
+            animation: changeColor 2s infinite;
+            animation-delay: 2s;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        
+        .container .main {
+            border: 1px solid pink;
+            width: 100%;
+            display: flex;
+        }
+        
+        .container .main .sidebar {
+            width: 20%;
+            height: 700px;
+            border: 1px solid burlywood;
+        }
+        
+        .container .main .content {
+            width: 80%;
+            border: 1px solid powderblue;
+        }
+        
+        footer {
+            width: 100%;
+            height: 50px;
+            border: 1px solid plum;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                LOGO
+            </div>
+            <nav>
+                <a href="#">首页</a>
+                <a href="#">博客</a>
+                <a href="#">收藏</a>
+                <a href="#">技术</a>
+                <a href="#">作品</a>
+            </nav>
+            <div class="user-info">
+                用户信息
+            </div>
+        </header>
+        <div class="main">
+            <div class="sidebar">
+                侧边导航栏
+            </div>
+            <div class="content">
+                内容栏
+            </div>
+        </div>
+        <footer>
+            页脚
+        </footer>
+    </div>
+</body>
+
+</html>
