@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS#BFC</title>
+    <style>
+        .column:nth-of-type(1) {
+            float: left;
+            width: 200px;
+            height: 300px;
+            margin-right: 100px;
+            background-color: red;
+        }
+        
+        .column:nth-of-type(2) {
+            /*创建bfc */
+            /* overflow: hidden; */
+            display: flow-root;
+            /* width: 300px; */
+            height: 300px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="column"></div>
+    <div class="column"></div>
+</body>
+
+</html>

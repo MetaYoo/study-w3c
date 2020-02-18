@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>页面内容滚动特效</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        .wrapper {
+            margin: 10px auto;
+            margin-bottom: 100px;
+            width: 100%;
+            height: 200px;
+            background-color: hotpink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+    </div>
+    <div class="wrapper">
+    </div>
+    <div class="wrapper">
+    </div>
+    <div class="wrapper">
+    </div>
+    <div class="wrapper">
+    </div>
+    <div class="wrapper">
+    </div>
+    <div class="wrapper">
+    </div>
+    <div class="wrapper">
+    </div>
+</body>
+<script>
+    $(document).ready(function() {
+        $(window).on("scroll", function(e) {
+            // console.info($(window).height() + "=" + $(document).height() + "=" + $(window).scrollTop());
+            console.info($(this).offset().top);
+            let bot = 100;
+            if ($(window).scrollTop() + $(window).height() + bot >= $(document).height()) {
+                console.info("已经滚动到文档的底部了，需要重新加载内容");
+            }
+        });
+
+    });
+</script>
+
+</html>
