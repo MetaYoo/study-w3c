@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>联动效果</title>
+    <link href="//at.alicdn.com/t/font_979779_qewa9yub21.css" rel="stylesheet">
+    <style scoped>
+        .wrapper {
+            width: 100%;
+        }
+
+        .wrapper .header {
+            width: 100%;
+            height: 50px;
+            background: #ffffff;
+            padding: 0 10px 0 12px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+        }
+
+        .wrapper .header .icon-arrow {
+            font-size: 24px;
+            color: #242424;
+            margin-right: 8px;
+        }
+
+        .wrapper .header .search {
+            width: 90%;
+            height: 34px;
+            background: #f9f9f9;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .wrapper .header .search .search-inp {
+            width: 100%;
+            height: 34px;
+            background: #f9f9f9;
+            padding: 0 30px 0 30px;
+            box-sizing: border-box;
+        }
+
+        .wrapper .header .search .icon-search {
+            font-size: 18px;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        .wrapper .header .search .icon-voice {
+            font-size: 18px;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+
+        .wrapper .body {
+            width: 100%;
+            position: absolute;
+            top: 50px;
+            bottom: 0;
+            overflow: hidden;
+        }
+
+        .wrapper .body .wrap {
+            width: 100%;
+        }
+
+        .wrapper .body .wrap .hot {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .wrapper .body .wrap .local .tit,
+        .wrapper .body .wrap .history .tit,
+        .wrapper .body .wrap .hot .tit {
+            color: #9b9b9b;
+            padding: 10px 0 10px 15px;
+            box-sizing: border-box;
+        }
+
+        .wrapper .body .wrap .list {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: 15px;
+        }
+
+        .wrapper .body .wrap .list .item {
+            width: 100px;
+            height: 32px;
+            border: 1px solid #c9c9c9;
+            box-sizing: border-box;
+            background: #fff;
+            text-align: center;
+            line-height: 32px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            color: #232323;
+        }
+
+        .wrapper .body .wrap .local .list .item {
+            margin-bottom: 0;
+        }
+
+        .wrapper .body .wrap .local .list .item .icon-local {
+            font-size: 13px;
+            color: #FFA500;
+            margin-right: 2px;
+        }
+
+        .wrapper .body .wrap .history .list .item:nth-last-child(-n+2) {
+            margin-bottom: 0;
+        }
+
+        .wrapper .body .wrap .city-list .tit {
+            color: #9b9b9b;
+            font-size: 12px;
+            padding: 5px 0 5px 15px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .wrapper .body .wrap .city-list .btm-wrap {
+            padding-left: 15px;
+            background: #fff;
+        }
+
+        .wrapper .body .wrap .city-list .btm-wrap .item {
+            width: 100%;
+            text-align: left;
+            color: #2f2f2f;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .wrapper .asside {
+            text-align: center;
+            position: fixed;
+            top: 60px;
+            right: 10px;
+        }
+
+        .wrapper .asside .item {
+            font-size: 12px;
+            color: #636363;
+            padding: 6px 0;
+            box-sizing: border-box;
+        }
+
+        .wrapper .asside .item.current {
+            color: #FFA500;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="wrapper">
+            <div class="header">
+                <div class="iconfont icon-arrow icon-icon-arrow"></div>
+                <div class="search">
+                    <input type="text" class="search-inp" placeholder="中文/拼音/首字母">
+                    <div class="iconfont icon-search"></div>
+                    <div class="iconfont icon-voice icon-yuying"></div>
+                </div>
+            </div>
+            <div class="body" ref="body">
+                <div class="wrap">
+                    <div class="local flag">
+                        <div class="tit">定位</div>
+                        <div class="list">
+                            <div class="item">
+                                <span class="iconfont icon-local icon-location"></span>{{localCity.name}}</div>
+                        </div>
+                    </div>
+                    <div class="history flag">
+                        <div class="tit">历史</div>
+                        <div class="list">
+                            <div class="item" v-for="item in historyCity" :key="item.id">{{item.name}}</div>
+                        </div>
+                    </div>
+                    <div class="hot flag">
+                        <div class="tit">热门城市</div>
+                        <div class="list">
+                            <div class="item" v-for="item in hotCity" :key="item.id">{{item.name}}</div>
+                        </div>
+                    </div>
+                    <div class="city-list flag" v-for="(items, key) in cityList" :key="key">
+                        <div class="tit">{{key}}</div>
+                        <div class="btm-wrap">
+                            <div class="item" v-for="item in items" :key="item.id">{{item.name}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="asside">
+                <div class="item" :class="{'current': currentIndex === index}" v-for="(item, index) in Letter"
+                    :key="item" @click="selectMenu(index)">{{item}}</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/better-scroll/dist/bscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script>
+        let vue = new Vue({
+            el: '#app',
+            data: {
+                localCity: {},
+                historyCity: [],
+                hotCity: [],
+                cityList: [],
+                listHeight: [],
+                scrollY: 0
+            },
+            mounted() {
+                this.getCity();
+            },
+            computed: {
+                Letter() {
+                    let arr = ['定位', '历史', '热门']
+                    for (let key in this.cityList) {
+                        arr.push(key);
+                    }
+                    return arr;
+                },
+                currentIndex() {
+                    for (let i = 0; i < this.listHeight.length; i++) {
+                        let height1 = this.listHeight[i];
+                        let height2 = this.listHeight[i + 1];
+                        if (!height2 || (this.scrollY >= height1 && this.scrollY < height2)) {
+                            return i;
+                        }
+                    }
+                    return 0;
+                }
+            },
+            methods: {
+                getCity() {
+                    var that = this;
+                    axios.get('./City.json').then(function (res) {
+                        that.localCity = res.data.data.locationCity;
+                        that.historyCity = res.data.data.historyCity;
+                        that.hotCity = res.data.data.hotCity;
+                        that.cityList = res.data.data.cityList;
+                        that.$nextTick(() => {
+                            that.initScroll();
+                            that.calculateHeight();
+                        })
+                    })
+                },
+                initScroll() {
+                    this.$nextTick(() => {
+                        if (!this.Scroll) {
+                            this.Scroll = new BScroll(this.$refs.body, {
+                                click: true, // 配置允许点击事件
+                                scrollY: true, // 可以开启纵向滚动
+                                probeType: 3, // 开启滚动监听
+                                bounce: false // 关闭弹性效果
+                            })
+                            this.Scroll.on('scroll', (pos) => {
+                                this.scrollY = Math.abs(Math.round(pos.y));
+                            })
+                        } else {
+                            this.Scroll.refresh(); // 重新计算 better-scroll，当 DOM 结构发生变化的时候务必要调用确保滚动的效果正常
+                        }
+                    })
+                },
+                calculateHeight() {
+                    let flagList = this.$refs.body.getElementsByClassName('flag');
+                    let height = 0;
+                    this.listHeight.push(height);
+                    for (let i = 0; i < flagList.length; i++) {
+                        let item = flagList[i];
+                        height += item.clientHeight;
+                        this.listHeight.push(height);
+                    }
+                },
+                selectMenu(index) {
+                    let flagList = this.$refs.body.getElementsByClassName('flag');
+                    let el = flagList[index];
+                    this.Scroll.scrollToElement(el, 300);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
